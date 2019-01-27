@@ -1,0 +1,18 @@
+diff -urN mozjs-60.1.0.orig/python/mozbuild/mozbuild/backend/recursivemake.py mozjs-60.1.0/python/mozbuild/mozbuild/backend/recursivemake.py
+--- mozjs-60.1.0.orig/python/mozbuild/mozbuild/backend/recursivemake.py	2018-06-19 00:24:03.000000000 +0200
++++ mozjs-60.1.0/python/mozbuild/mozbuild/backend/recursivemake.py	2019-01-27 15:47:21.573556544 +0100
+@@ -1427,11 +1427,11 @@
+                                 raise Exception("Wildcards are only supported in the filename part of "
+                                                 "srcdir-relative or absolute paths.")
+ 
+-                            install_manifest.add_pattern_link(basepath, wild, path)
++                            install_manifest.add_pattern_copy(basepath, wild, path)
+                         else:
+-                            install_manifest.add_pattern_link(f.srcdir, f, path)
++                            install_manifest.add_pattern_copy(f.srcdir, f, path)
+                     else:
+-                        install_manifest.add_link(f.full_path, dest)
++                        install_manifest.add_copy(f.full_path, dest)
+                 else:
+                     install_manifest.add_optional_exists(dest)
+                     backend_file.write('%s_FILES += %s\n' % (

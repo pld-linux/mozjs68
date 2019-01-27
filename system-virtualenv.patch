@@ -1,0 +1,13 @@
+diff -urN mozjs-60.1.0.orig/python/mozbuild/mozbuild/virtualenv.py mozjs-60.1.0/python/mozbuild/mozbuild/virtualenv.py
+--- mozjs-60.1.0.orig/python/mozbuild/mozbuild/virtualenv.py	2018-06-19 00:24:05.000000000 +0200
++++ mozjs-60.1.0/python/mozbuild/mozbuild/virtualenv.py	2019-01-27 14:30:42.181096929 +0100
+@@ -66,8 +66,7 @@
+     @property
+     def virtualenv_script_path(self):
+         """Path to virtualenv's own populator script."""
+-        return os.path.join(self.topsrcdir, 'third_party', 'python',
+-            'virtualenv', 'virtualenv.py')
++        return '/usr/bin/virtualenv-2'
+ 
+     @property
+     def bin_path(self):
