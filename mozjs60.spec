@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests	# tests build
+
 Summary:	SpiderMonkey 60 - JavaScript implementation
 Summary(pl.UTF-8):	SpiderMonkey 60 - implementacja języka JavaScript
 Name:		mozjs60
@@ -11,7 +15,10 @@ Patch0:		copy-headers.patch
 Patch1:		system-virtualenv.patch
 Patch2:		include-configure-script.patch
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
-BuildRequires:	autoconf2_13
+BuildRequires:	autoconf2_13 >= 2.13
+# "TestWrappingOperations.cpp:27:1: error: non-constant condition for static assertion" with -fwrapv on gcc 6
+%{?with_tests:BuildRequires:	gcc-c++ >= 6:7}
+BuildRequires:	libicu-devel >= 59.1
 BuildRequires:	libstdc++-devel >= 6:4.4
 BuildRequires:	nspr-devel >= 4.9.2
 BuildRequires:	perl-base >= 1:5.6
@@ -70,15 +77,16 @@ cd obj
 
 %define configuredir ".."
 %configure2_13 \
-	--enable-readline \
-	--enable-threadsafe \
-	--enable-shared-js \
 	--enable-gcgenerational \
-	--with-system-nspr \
-	--with-system-icu \
-	--with-system-zlib \
+	--disable-jemalloc \
+	--enable-readline \
+	--enable-shared-js \
+	%{!?with_tests:--disable-tests} \
+	--enable-threadsafe \
 	--with-intl-api \
-	--disable-jemalloc
+	--with-system-icu \
+	--with-system-nspr \
+	--with-system-zlib
 
 %{__make} \
 	HOST_OPTIMIZE_FLAGS= \
@@ -86,8 +94,6 @@ cd obj
 	MOZ_OPTIMIZE_FLAGS="-freorder-blocks" \
 	MOZ_PGO_OPTIMIZE_FLAGS= \
 	MOZILLA_VERSION=%{version}
-
-cd ../../..
 
 %install
 rm -rf $RPM_BUILD_ROOT
