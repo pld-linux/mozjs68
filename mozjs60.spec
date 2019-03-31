@@ -14,6 +14,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs
 Patch0:		copy-headers.patch
 Patch1:		system-virtualenv.patch
 Patch2:		include-configure-script.patch
+Patch3:		x32.patch
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
 BuildRequires:	autoconf2_13 >= 2.13
 # "TestWrappingOperations.cpp:27:1: error: non-constant condition for static assertion" with -fwrapv on gcc 6
@@ -66,13 +67,14 @@ Pliki nagłówkowe do biblioteki JavaScript.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 export PYTHON="%{__python}"
 export AUTOCONF="%{_bindir}/autoconf2_13"
 export SHELL="/bin/sh"
 cd js/src
-mkdir obj
+mkdir -p obj
 cd obj
 
 %define configuredir ".."
