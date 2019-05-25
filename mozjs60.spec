@@ -5,12 +5,13 @@
 Summary:	SpiderMonkey 60 - JavaScript implementation
 Summary(pl.UTF-8):	SpiderMonkey 60 - implementacja języka JavaScript
 Name:		mozjs60
-Version:	60.1.0
-Release:	2
+Version:	60.7.0
+Release:	1
 License:	MPL v2.0
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-%{version}.tar.bz2
-# Source0-md5:	202f71313e53d9b92e7c578107541539
+#Source0:	http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-%{version}.tar.bz2
+Source0:	http://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
+# Source0-md5:	8e42357e8687ae2004b1493f1fbc0f04
 Patch0:		copy-headers.patch
 Patch1:		system-virtualenv.patch
 Patch2:		include-configure-script.patch
@@ -63,7 +64,7 @@ Header files for JavaScript reference library.
 Pliki nagłówkowe do biblioteki JavaScript.
 
 %prep
-%setup -q -n mozjs-%{version}
+%setup -q -n firefox-%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
