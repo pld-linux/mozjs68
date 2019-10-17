@@ -18,8 +18,8 @@ Patch2:		include-configure-script.patch
 Patch3:		x32.patch
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
 BuildRequires:	autoconf2_13 >= 2.13
-# "TestWrappingOperations.cpp:27:1: error: non-constant condition for static assertion" with -fwrapv on gcc 6
-%{?with_tests:BuildRequires:	gcc-c++ >= 6:7}
+# "TestWrappingOperations.cpp:27:1: error: non-constant condition for static assertion" with -fwrapv on gcc 6 and 7
+%{?with_tests:BuildRequires:	gcc-c++ >= 6:8}
 BuildRequires:	libicu-devel >= 59.1
 BuildRequires:	libstdc++-devel >= 6:4.4
 BuildRequires:	nspr-devel >= 4.9.2
