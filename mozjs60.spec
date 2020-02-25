@@ -5,13 +5,13 @@
 Summary:	SpiderMonkey 60 - JavaScript implementation
 Summary(pl.UTF-8):	SpiderMonkey 60 - implementacja języka JavaScript
 Name:		mozjs60
-Version:	60.7.0
-Release:	3
+Version:	60.9.0
+Release:	1
 License:	MPL v2.0
 Group:		Libraries
 #Source0:	http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-%{version}.tar.bz2
 Source0:	http://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
-# Source0-md5:	8e42357e8687ae2004b1493f1fbc0f04
+# Source0-md5:	69a0be9ce695e5dc4941ed0c78ef00c2
 Patch0:		copy-headers.patch
 Patch1:		system-virtualenv.patch
 Patch2:		include-configure-script.patch
@@ -22,7 +22,7 @@ BuildRequires:	autoconf2_13 >= 2.13
 %{?with_tests:BuildRequires:	gcc-c++ >= 6:8}
 BuildRequires:	libicu-devel >= 59.1
 BuildRequires:	libstdc++-devel >= 6:4.4
-BuildRequires:	nspr-devel >= 4.9.2
+BuildRequires:	nspr-devel >= 4.19
 BuildRequires:	perl-base >= 1:5.6
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.5
@@ -31,7 +31,7 @@ BuildRequires:	readline-devel
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.294
 BuildRequires:	zlib-devel >= 1.2.3
-Requires:	nspr >= 4.9.2
+Requires:	nspr >= 4.19
 Requires:	zlib >= 1.2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,7 +55,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe do biblioteki JavaScript
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
-Requires:	nspr-devel >= 4.9.2
+Requires:	nspr-devel >= 4.19
 
 %description devel
 Header files for JavaScript reference library.
