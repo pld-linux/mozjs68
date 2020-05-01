@@ -16,6 +16,7 @@ Patch0:		copy-headers.patch
 Patch1:		system-virtualenv.patch
 Patch2:		include-configure-script.patch
 Patch3:		x32.patch
+Patch4:		no-rust.patch
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
 BuildRequires:	autoconf2_13 >= 2.13
 # "TestWrappingOperations.cpp:27:1: error: non-constant condition for static assertion" with -fwrapv on gcc 6 and 7
@@ -69,6 +70,7 @@ Pliki nagłówkowe do biblioteki JavaScript.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 export PYTHON="%{__python}"
