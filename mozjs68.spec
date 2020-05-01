@@ -2,16 +2,16 @@
 # Conditional build:
 %bcond_without	tests	# tests build
 
-Summary:	SpiderMonkey 60 - JavaScript implementation
-Summary(pl.UTF-8):	SpiderMonkey 60 - implementacja języka JavaScript
-Name:		mozjs60
-Version:	60.9.0
+Summary:	SpiderMonkey 68 - JavaScript implementation
+Summary(pl.UTF-8):	SpiderMonkey 68 - implementacja języka JavaScript
+Name:		mozjs68
+Version:	68.7.0
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 #Source0:	http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-%{version}.tar.bz2
 Source0:	http://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
-# Source0-md5:	69a0be9ce695e5dc4941ed0c78ef00c2
+# Source0-md5:	a3e8676285f4fd7834ac16b1fee4e20c
 Patch0:		copy-headers.patch
 Patch1:		system-virtualenv.patch
 Patch2:		include-configure-script.patch
@@ -118,11 +118,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc js/src/README.html
-%attr(755,root,root) %{_bindir}/js60
-%attr(755,root,root) %{_libdir}/libmozjs-60.so
+%attr(755,root,root) %{_bindir}/js68
+%attr(755,root,root) %{_libdir}/libmozjs-68.so
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/js60-config
-%{_includedir}/mozjs-60
-%{_pkgconfigdir}/mozjs-60.pc
+%attr(755,root,root) %{_bindir}/js68-config
+%{_includedir}/mozjs-68
+%{_pkgconfigdir}/mozjs-68.pc
