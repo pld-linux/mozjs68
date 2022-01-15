@@ -27,6 +27,7 @@ BuildRequires:	nspr-devel >= 4.19
 BuildRequires:	perl-base >= 1:5.6
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.5
+BuildRequires:	python-psutil
 BuildRequires:	python-virtualenv >= 1.9.1-4
 BuildRequires:	readline-devel
 BuildRequires:	rpm-perlprov
