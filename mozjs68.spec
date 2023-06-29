@@ -23,6 +23,7 @@ BuildRequires:	autoconf2_13 >= 2.13
 %{?with_tests:BuildRequires:	gcc-c++ >= 6:8}
 BuildRequires:	libicu-devel >= 59.1
 BuildRequires:	libstdc++-devel >= 6:4.4
+BuildRequires:	llvm
 BuildRequires:	nspr-devel >= 4.19
 BuildRequires:	perl-base >= 1:5.6
 BuildRequires:	pkgconfig
