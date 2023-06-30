@@ -6,7 +6,7 @@ Summary:	SpiderMonkey 68 - JavaScript implementation
 Summary(pl.UTF-8):	SpiderMonkey 68 - implementacja języka JavaScript
 Name:		mozjs68
 Version:	68.12.0
-Release:	5
+Release:	6
 License:	MPL v2.0
 Group:		Libraries
 #Source0:	http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-%{version}.tar.bz2
